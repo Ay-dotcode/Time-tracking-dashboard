@@ -3,3 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body {
+    display: grid;
+    place-items: center;
+    color: white;
+    background-color: hsl(226, 43%, 10%);
+}
+
+main {
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    width: 375px;
+
+    border: 2px solid white;
+}
+
+.card, #main {
+    border-radius: 16px;
+    background-color: hsl(235, 46%, 20%);
+    padding: 1rem;
+}
