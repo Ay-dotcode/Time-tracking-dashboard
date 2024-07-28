@@ -72,3 +72,6 @@ main {
 .active {
     color: white;
 }
+.daily, .monthly{
+    display: none;
+}
