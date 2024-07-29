@@ -47,7 +47,6 @@
 .backgroundImg {
     margin-right: 16px;
     width: 80px;
-    z-index: 0;
 }
 
 .card {
@@ -56,5 +55,26 @@
     padding: 1.5rem;
     width: 320px;
     height: 80%;
-    z-index: 1;
+}
+
+.subHeading {
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Time {
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.Previous {
+    color: hsla(236, 100%, 87%, 0.8);
 }
