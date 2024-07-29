@@ -63,11 +63,28 @@ main {
     color: hsla(0, 0%, 100%, 0.5);
 }
 
-.active {
-    color: white;
+#day,
+#week,
+#month {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
 }
 
-.daily,
+#day:hover,
+#week:hover,
+#month:hover {
+    color: hsla(0, 0%, 100%, 0.8);
+}
+
+.active,
+.active:hover {
+    color: white;
+    display: block;
+}
+
+/* .daily, */
+.weekly,
 .monthly {
     display: none;
 }

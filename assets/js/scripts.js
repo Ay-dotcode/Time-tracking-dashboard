@@ -25,3 +25,19 @@ function appendData(data) {
     </section>
      `
 }
+const daily = document.getElementsByClassName('daily');
+function changeday() {
+    day.classList.add('active');
+    week.classList.remove('active');
+    month.classList.remove('active');
+}
+function changeweek() {
+    day.classList.remove('active');
+    week.classList.add('active');
+    month.classList.remove('active');
+}
+function changemonth() {
+    day.classList.remove('active');
+    week.classList.remove('active');
+    month.classList.add('active');
+}
