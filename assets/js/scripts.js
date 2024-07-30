@@ -5,6 +5,7 @@ const month = document.getElementById('month');
 const datas = [];
 
 getData();
+document.addEventListener('click', changeActiveTab);
 
 function getData() {
   if (datas.length > 0) {
@@ -75,4 +76,3 @@ function setActiveTab(tab) {
   month.classList.remove('active');
   tab.classList.add('active');
 }
-document.addEventListener('click', changeActiveTab);
