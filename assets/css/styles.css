@@ -83,8 +83,8 @@ main {
     display: block;
 }
 
-/* .daily, */
-.weekly,
+.daily,
+/* .weekly, */
 .monthly {
     display: none;
 }
