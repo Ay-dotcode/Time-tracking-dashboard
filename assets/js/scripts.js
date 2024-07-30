@@ -1,15 +1,20 @@
 const main = document.querySelector('main');
-let time, previous, length;
+let time, previous, length, datas;
 getData();
 
 function getData() {
-  fetch("../../data.json")
-    .then(response => response.json())
-    .then(datas => {
-      length = datas.length;
-      datas.forEach(setData)
-    })
-    .catch(error => console.error(error));
+  if (datas) {
+    datas.forEach(setData);
+  } else {
+    fetch("../../data.json")
+      .then(response => response.json())
+      .then(data => {
+        datas = data;
+        length = datas.length;
+        datas.forEach(setData);
+      })
+      .catch(error => console.error(error));
+  }
 }
 function setData(data) {
   if (day.classList.contains('active')) {
