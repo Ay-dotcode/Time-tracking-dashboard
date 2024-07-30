@@ -1,12 +1,14 @@
 const main = document.querySelector('main');
-const daily = document.querySelector('daily');
-let time, previous;
+let time, previous, length;
 getData();
 
 function getData() {
   fetch("../../data.json")
     .then(response => response.json())
-    .then(datas => datas.forEach(setData))
+    .then(datas => {
+      length = datas.length;
+      datas.forEach(setData)
+    })
     .catch(error => console.error(error));
 }
 function setData(data) {
@@ -38,34 +40,26 @@ function appendData(time, previous, data) {
       </section>
      `
   main.appendChild(sect);
-}
+  while (main.children.length > length + 1) {
+    main.removeChild(main.children[1]);
+  }
+};
 function changeday() {
   day.classList.add('active');
   week.classList.remove('active');
   month.classList.remove('active');
-  // Remove all children of main except the first one
-  while (main.children.length > 1) {
-    main.removeChild(main.lastChild);
-  }
   getData();
+
 }
 function changeweek() {
   day.classList.remove('active');
   week.classList.add('active');
   month.classList.remove('active');
-  // Remove all children of main except the first one
-  while (main.children.length > 1) {
-    main.removeChild(main.lastChild);
-  }
   getData();
 }
 function changemonth() {
   day.classList.remove('active');
   week.classList.remove('active');
   month.classList.add('active');
-  // Remove all children of main except the first one
-  while (main.children.length > 1) {
-    main.removeChild(main.lastChild);
-  }
   getData();
 }
