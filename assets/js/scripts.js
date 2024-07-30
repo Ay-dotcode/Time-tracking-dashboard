@@ -8,8 +8,7 @@ function getData() {
   } else {
     fetch("../../data.json")
       .then(response => response.json())
-      .then(data => {
-        datas = data;
+      .then(datas => {
         length = datas.length;
         datas.forEach(setData);
       })
