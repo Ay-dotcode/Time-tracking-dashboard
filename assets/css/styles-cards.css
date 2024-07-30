@@ -55,6 +55,11 @@
     padding: 1.5rem;
     width: 320px;
     height: 80%;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: hsl(235, 45%, 31%);
 }
 
 .subHeading {
@@ -68,6 +73,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.options {
+    cursor: pointer;
+}
+
+.options:hover {
+    color: red;
 }
 
 .Time {
