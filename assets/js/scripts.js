@@ -60,19 +60,19 @@ function appendData(id, title, time, previous) {
 
 function changeActiveTab(event) {
   const target = event.target;
-  if (target === day) {
-    day.classList.add('active');
-    week.classList.remove('active');
-    month.classList.remove('active');
-  } else if (target === week) {
-    day.classList.remove('active');
-    week.classList.add('active');
-    month.classList.remove('active');
-  } else if (target === month) {
-    day.classList.remove('active');
-    week.classList.remove('active');
-    month.classList.add('active');
-  }
+  if (target === day)
+    setActiveTab(day);
+  else if (target === week)
+    setActiveTab(week);
+  else if (target === month)
+    setActiveTab(month);
   getData();
+}
+
+function setActiveTab(tab) {
+  day.classList.remove('active');
+  week.classList.remove('active');
+  month.classList.remove('active');
+  tab.classList.add('active');
 }
 document.addEventListener('click', changeActiveTab);
