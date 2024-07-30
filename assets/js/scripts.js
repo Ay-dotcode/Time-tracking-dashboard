@@ -1,43 +1,71 @@
-fetch("../../data.json")
-    .then(response => response.json())
-    .then(datas => datas.forEach(appendData))
-    .catch(error => console.error(error));
-
 const main = document.querySelector('main');
+const daily = document.querySelector('daily');
+let time, previous;
+getData();
 
-function appendData(data) {
-    main.innerHTML += `
-    <section id="${data.title.replace(/\s+/g, '')}">
+function getData() {
+  fetch("../../data.json")
+    .then(response => response.json())
+    .then(datas => datas.forEach(setData))
+    .catch(error => console.error(error));
+}
+function setData(data) {
+  if (day.classList.contains('active')) {
+    time = data.timeframes.daily.current;
+    previous = `Yesterday - ${data.timeframes.daily.previous}`
+  } else if (week.classList.contains('active')) {
+    time = data.timeframes.weekly.current;
+    previous = `Last week - ${data.timeframes.weekly.previous}`
+  } else {
+    time = data.timeframes.monthly.current;
+    previous = `Last month - ${data.timeframes.monthly.previous}`
+  }
+  appendData(time, previous, data);
+}
+function appendData(time, previous, data) {
+  let sect = document.createElement('section');
+  sect.id = `${data.title.replace(/\s+/g, '')}`
+  sect.innerHTML += `
       <section class="card">
         <div class="row">
           <h3 class="subHeading"> ${data.title}</h3>
           <img class="options" src="assets/images/icon-ellipsis.svg" alt="options">
         </div>
         <div class="row">
-          <p class="daily Time"> ${data.timeframes.daily.current}hrs</p>
-          <p class="daily Previous">Yesterday - ${data.timeframes.daily.previous}hrs</p>
-          <p class="weekly Time">${data.timeframes.weekly.current}hrs</p>
-          <p class="weekly Previous"> Last week - ${data.timeframes.weekly.previous}hrs</p>
-          <p class="monthly Time"> ${data.timeframes.monthly.current}hrs</p>
-          <p class="monthly Previous"> Last month - ${data.timeframes.monthly.previous}hrs</p>
+          <p class="Time"> ${time}hrs</p>
+          <p class="Previous">${previous}hrs</p>
         </div>
       </section>
-    </section>
      `
+  main.appendChild(sect);
 }
-const daily = document.getElementsByClassName('daily');
 function changeday() {
-    day.classList.add('active');
-    week.classList.remove('active');
-    month.classList.remove('active');
+  day.classList.add('active');
+  week.classList.remove('active');
+  month.classList.remove('active');
+  // Remove all children of main except the first one
+  while (main.children.length > 1) {
+    main.removeChild(main.lastChild);
+  }
+  getData();
 }
 function changeweek() {
-    day.classList.remove('active');
-    week.classList.add('active');
-    month.classList.remove('active');
+  day.classList.remove('active');
+  week.classList.add('active');
+  month.classList.remove('active');
+  // Remove all children of main except the first one
+  while (main.children.length > 1) {
+    main.removeChild(main.lastChild);
+  }
+  getData();
 }
 function changemonth() {
-    day.classList.remove('active');
-    week.classList.remove('active');
-    month.classList.add('active');
+  day.classList.remove('active');
+  week.classList.remove('active');
+  month.classList.add('active');
+  // Remove all children of main except the first one
+  while (main.children.length > 1) {
+    main.removeChild(main.lastChild);
+  }
+  getData();
 }

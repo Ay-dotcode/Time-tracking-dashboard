@@ -71,20 +71,13 @@ main {
     border: none;
 }
 
-#day:hover,
-#week:hover,
-#month:hover {
+#day:hover:not(.active),
+#week:hover:not(.active),
+#month:hover:not(.active) {
     color: hsla(0, 0%, 100%, 0.8);
 }
 
 .active,
 .active:hover {
     color: white;
-    display: block;
-}
-
-.daily,
-/* .weekly, */
-.monthly {
-    display: none;
 }
