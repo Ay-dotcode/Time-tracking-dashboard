@@ -65,11 +65,15 @@
 .subHeading {
     font-size: 1.3rem;
     font-weight: 400;
-    margin-bottom: 12px;
     display: inline-block;
 }
 
-.row {
+.row1 {
+    margin-bottom: 1rem;
+}
+
+.row1,
+.row2 {
     display: flex;
     justify-content: space-between;
     align-items: center;

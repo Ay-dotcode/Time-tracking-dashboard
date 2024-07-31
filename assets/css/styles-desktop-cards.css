@@ -1,1 +1,21 @@
-@media (min-width: 48em) {}
+@media (min-width: 48em) {
+    .card {
+        width: 200px;
+    }
+
+    .subHeading {
+        font-size: 1rem;
+    }
+
+    .row2 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .Time {
+        font-size: 2.5rem;
+    }
+    .Previous{
+        font-size: 0.7rem;
+    }
+}

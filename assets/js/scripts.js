@@ -43,11 +43,11 @@ function appendData(id, title, time, previous) {
   sect.id = id;
   sect.innerHTML = `
     <section class="card">
-      <div class="row">
+      <div class="row1">
         <h3 class="subHeading">${title}</h3>
         <img class="options" src="assets/images/icon-ellipsis.svg" alt="options">
       </div>
-      <div class="row">
+      <div class="row2">
         <p class="Time">${time}hrs</p>
         <p class="Previous">${previous}hrs</p>
       </div>
