@@ -1,3 +1,39 @@
 @media (min-width: 48em) {
-    main {}
+    main {
+        display: grid;
+        width: fit-content;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-areas:
+            'author work play study'
+            'author exercise social selfCare';
+    }
+
+    #author {
+        grid-area: author;
+        
+    }
+
+    #Work {
+        grid-area: work;
+    }
+
+    #Play {
+        grid-area: play;
+    }
+
+    #Study {
+        grid-area: study;
+    }
+
+    #Exercise {
+        grid-area: exercise;
+    }
+
+    #Social {
+        grid-area: social;
+    }
+
+    #SelfCare {
+        grid-area: selfCare;
+    }
 }
