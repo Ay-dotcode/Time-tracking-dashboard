@@ -1,6 +1,17 @@
 @media (min-width: 48em) {
+
+    #Work,
+    #Play,
+    #Study,
+    #Exercise,
+    #Social,
+    #SelfCare {
+        height: 100%;
+    }
+
     .card {
         width: 200px;
+        height: 100%;
     }
 
     .subHeading {
@@ -15,7 +26,8 @@
     .Time {
         font-size: 2.5rem;
     }
-    .Previous{
+
+    .Previous {
         font-size: 0.7rem;
     }
 }
