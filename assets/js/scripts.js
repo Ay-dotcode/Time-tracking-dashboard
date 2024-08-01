@@ -22,19 +22,28 @@ function getData() {
 }
 
 function setData(data) {
-  let id, title, time, previous;
+  let id, title, time, previous, past;
   id = `${data.title.replace(/\s+/g, '')}`
   title = data.title;
   if (day.classList.contains('active')) {
     time = data.timeframes.daily.current;
-    previous = `Yesterday - ${data.timeframes.daily.previous}`;
+    previous = data.timeframes.daily.previous;
+    past = 'Yesterday - ';
   } else if (week.classList.contains('active')) {
     time = data.timeframes.weekly.current;
-    previous = `Last week - ${data.timeframes.weekly.previous}`;
+    previous = data.timeframes.weekly.previous;
+    past = 'Last Week - ';
   } else {
     time = data.timeframes.monthly.current;
-    previous = `Last month - ${data.timeframes.monthly.previous}`;
+    previous = data.timeframes.monthly.previous;
+    past = 'Last Month - ';
   }
+  addHrs(id, title, time, previous, past);
+}
+function addHrs(id, title, time, previous, past) {
+  time += time > 1 ? 'hrs' : 'hr';
+  previous = past + previous + (previous > 1 ? 'hrs' : 'hr');
+
   appendData(id, title, time, previous);
 }
 
@@ -48,8 +57,8 @@ function appendData(id, title, time, previous) {
         <img class="options" src="assets/images/icon-ellipsis.svg" alt="options">
       </div>
       <div class="row2">
-        <p class="Time">${time}hrs</p>
-        <p class="Previous">${previous}hrs</p>
+        <p class="Time">${time}</p>
+        <p class="Previous">${previous}</p>
       </div>
     </section>
   `;
